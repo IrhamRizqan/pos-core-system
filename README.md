@@ -1,5 +1,7 @@
 # pos-core-system
 
+Demo App : https://pos-core-landing.vercel.app/
+
 Backend API for a multi-outlet Point of Sale (POS) system built with **FastAPI**, **async SQLAlchemy 2.0**, **MySQL 8.0**, and **Redis**
 
 Instead of a basic CRUD store, this project focuses on the edge cases that usually break naive POS implementations in production: race conditions when multiple cashiers sell the last remaining item simultaneously, duplicate orders from network retries, and unauthorized cross-branch access
