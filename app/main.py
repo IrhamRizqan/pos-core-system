@@ -3,7 +3,7 @@ from decimal import Decimal
 from fastapi import FastAPI
 from sqlalchemy import select
 
-from app.api.v1 import auth, checkout, products, inventory
+from app.api.v1 import auth, checkout, products, inventory, reports
 from app.core.database import AsyncSessionLocal, engine
 from app.core.redis import redis_client
 from app.core.security import hash_password
@@ -64,6 +64,7 @@ app.include_router(auth.router, prefix="/api/v1")
 app.include_router(products.router, prefix="/api/v1")
 app.include_router(checkout.router, prefix="/api/v1")
 app.include_router(inventory.router, prefix="/api/v1")
+app.include_router(reports.router, prefix="/api/v1")
 
 @app.get("/health")
 async def health_check():

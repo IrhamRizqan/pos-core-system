@@ -31,3 +31,14 @@ class RestockRequest(BaseModel):
     product_id:int = Field(..., examples=[1])
     quantity:int = Field(..., gt=0, description="Jumlah stok masuk harus lebih dari 0")
     reference_note:str = Field(default="MANUAL-RESTOCK", max_length=64)
+
+class StockOpnameRequest(BaseModel):
+    outlet_id:int = Field(..., examples=[1])
+    product_id:int = Field(..., examples=[1])
+    actual_stock:int = Field(..., ge=0, description="Jumlah stok fisik hasil hitung aktual")
+    reason:str = Field(
+        default="STOK-OPNAME",
+        min_length=3,
+        max_length=50,
+        examples=["BARANG-RUSAK", "SELISIH-HITUNG-BULANAN"],
+    )
